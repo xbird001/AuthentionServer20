@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "2a07f4a7-7087-4ae8-8dbe-657da83d4504",
+		"name": "OAUTH2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取TOKEN",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "dse123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "dse1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "xbird",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "app",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://10.100.50.145:8070/oauth/token",
+					"protocol": "http",
+					"host": [
+						"10",
+						"100",
+						"50",
+						"145"
+					],
+					"port": "8070",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "验证token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "dse123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "dse1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "cb5135f3-81bb-480e-a45b-bd37b88a9377",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{ip}}:8070/oauth/check_token",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8070",
+					"path": [
+						"oauth",
+						"check_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "dse123456",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "dse1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "aa08a7cb-96ef-4c83-a119-ba81c7669154",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{ip}}:8070/oauth/token",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8070",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "访问用户列表【1】",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 19be6592-3756-4f3f-84fe-7a811f335307",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:8060/user/index",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8060",
+					"path": [
+						"user",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "测试事物【1】",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access_token",
+							"value": "19be6592-3756-4f3f-84fe-7a811f335307",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{ip}}:8060/user/save",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8060",
+					"path": [
+						"user",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "测试Dubbo服务【2】",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 19be6592-3756-4f3f-84fe-7a811f335307",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:8050/user/queryString",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "8050",
+					"path": [
+						"user",
+						"queryString"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
